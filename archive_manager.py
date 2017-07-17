@@ -1,3 +1,12 @@
+# Script Name : archives_manager.py
+# Author      : Stanley Ulili
+# Created     : July 16 2017
+# Version     : 0.1
+
+# Description : This is a script that unzip all zipped files in a directory.
+#               It allows you to delete or move the zipped files after
+#               extraction.
+
 import os
 import sys
 import re
