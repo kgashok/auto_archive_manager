@@ -6,8 +6,12 @@ import zipfile
 
 
 def get_dir():
-    print('''Enter the location with zipped file
-        for example:  /home/username/Documents/zipped''')
+    print('''Enter the location of the folder with zipped files
+
+             /home/username/Documents/folder with zipped files on unix
+                       or
+             C:/Users/username/Desktop/folder with zipped files on Windows''')
+
     location = input('..')
     if location:
         return location
