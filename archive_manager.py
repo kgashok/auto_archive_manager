@@ -64,6 +64,8 @@ def unzip_files():
         delete_zipped_files()
     elif choice == 2:
         move_zipped_files()
+    else:
+        sys.exit()
 
 
 def get_action():
