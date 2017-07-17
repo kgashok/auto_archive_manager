@@ -10,11 +10,16 @@ def get_dir():
 
              /home/username/Documents/folder with zipped files on unix
                        or
-             C:/Users/username/Desktop/folder with zipped files on Windows''')
+             C:/Users/username/Desktop/folder with zipped files on Windows
+             enter 'q' to quit.
+          ''')
 
     location = input('..')
     if location:
-        return location
+        if location.lower() == 'q':
+            sys.exit()
+        else:
+            return location
     else:
         print("Please enter the location")
 
