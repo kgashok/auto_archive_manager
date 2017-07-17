@@ -1,4 +1,6 @@
 import os
+import sys
+import shutil
 import zipfile
 
 
@@ -19,6 +21,28 @@ def delete_zipped_files():
     for file in os.listdir(dir_location):
         if file.endswith('.zip'):
             os.unlink(file)
+    print("program finished.")
+
+
+def move_zipped_files():
+    try:
+        os.makedirs('zipped_files')
+        for file in os.listdir(dir_location):
+            if file.endswith('.zip'):
+                shutil.move(file, 'zipped_files')
+    except FileExistsError:
+        print("folder named zipped_files already exists")
+        print("Would the files moved into the zipped_files directory? Y/N")
+        response = input('..')
+        if response.lower() == 'y':
+            for file in os.listdir(dir_location):
+                if file.endswith('.zip'):
+                    shutil.move(file, 'zipped_files')
+            print("program finished.")
+        else:
+            sys.exit()
+    else:
+        print("zipped files move to 'zipped_files' directory")
 
 
 def unzip_files():
@@ -38,6 +62,8 @@ def unzip_files():
     choice = int(input('..'))
     if choice == 1:
         delete_zipped_files()
+    elif choice == 2:
+        move_zipped_files()
 
 
 def get_action():
