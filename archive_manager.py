@@ -54,6 +54,7 @@ def zip_files():
             zipped_file = zipfile.ZipFile(file + '.zip', 'w')
             zipped_file.write(file, compress_type=zipfile.ZIP_DEFLATED)
             zipped_file.close()
+            print(file + " successfully zipped.")
 
 
 def unzip_files():
