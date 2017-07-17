@@ -6,6 +6,7 @@ import zipfile
 
 
 def get_dir():
+    """ Get the location of folder with zipped files from the user"""
     print('''Enter the location of the folder with zipped files
 
              /home/username/Documents/folder with zipped files on unix
@@ -28,6 +29,7 @@ dir_location = get_dir()
 
 
 def delete_zipped_files():
+    """ Delete the zipped files in the folder"""
     for file in os.listdir(dir_location):
         if file.endswith('.zip'):
             os.unlink(file)
@@ -35,6 +37,7 @@ def delete_zipped_files():
 
 
 def move_zipped_files():
+    """ Move zip files to a folder zipped_files """
     try:
         os.makedirs('zipped_files')
         for file in os.listdir(dir_location):
@@ -56,6 +59,7 @@ def move_zipped_files():
 
 
 def zip_files():
+    """ Creates zip archives """
     os.chdir(dir_location)
     for file in os.listdir(dir_location):
         if file.endswith('.zip'):
@@ -68,6 +72,8 @@ def zip_files():
 
 
 def unzip_files():
+    """ Unzips archives and also call other functions to delete or move
+    the zipped files """
     os.chdir(dir_location)
     pattern = re.compile(r'([\w ]+)\.[^\.]+$')
     for zipped_file in os.listdir(dir_location):
@@ -93,6 +99,7 @@ def unzip_files():
 
 
 def get_action():
+    """ Let's the user choose whether to zip or unzip files"""
     print('''Do you want to zip or unzip files.
           Enter:
                1. zip
