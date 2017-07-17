@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 import shutil
 import zipfile
 
@@ -59,10 +60,12 @@ def zip_files():
 
 def unzip_files():
     os.chdir(dir_location)
+    pattern = re.compile(r'([\w ]+)\.[^\.]+$')
     for zipped_file in os.listdir(dir_location):
         if zipped_file.endswith('.zip'):
+            match = pattern.search(zipped_file)
             file_unzipped = zipfile.ZipFile(zipped_file)
-            file_unzipped.extractall()
+            file_unzipped.extractall(match.group(1))
             file_unzipped.close()
             print(zipped_file + " successfuly extracted.")
 
