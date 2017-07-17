@@ -45,9 +45,20 @@ def move_zipped_files():
         print("zipped files move to 'zipped_files' directory")
 
 
+def zip_files():
+    os.chdir(dir_location)
+    for file in os.listdir(dir_location):
+        if file.endswith('.zip'):
+            pass
+        else:
+            zipped_file = zipfile.ZipFile(file + '.zip', 'w')
+            zipped_file.write(file, compress_type=zipfile.ZIP_DEFLATED)
+            zipped_file.close()
+
+
 def unzip_files():
+    os.chdir(dir_location)
     for zipped_file in os.listdir(dir_location):
-        os.chdir(dir_location)
         if zipped_file.endswith('.zip'):
             file_unzipped = zipfile.ZipFile(zipped_file)
             file_unzipped.extractall()
@@ -77,7 +88,7 @@ def get_action():
     action = int(input('..'))
 
     if action == 1:
-        print("not yet implemented")
+        zip_files()
     else:
         unzip_files()
 
