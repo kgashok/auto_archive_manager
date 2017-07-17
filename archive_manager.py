@@ -2,31 +2,28 @@ import os
 import zipfile
 
 
-dir_location = []
-
-
 def get_dir():
     print('''Enter the location with zipped file
         for example:  /home/username/Documents/zipped''')
     location = input('..')
     if location:
-        dir_location.append(location)
+        return location
     else:
         print("Please enter the location")
 
 
-def delete_zipped_files():
-    location = get_dir()
+dir_location = get_dir()
 
-    for file in os.listdirs(location):
+
+def delete_zipped_files():
+    for file in os.listdir(dir_location):
         if file.endswith('.zip'):
-            print(file)
+            os.unlink(file)
 
 
 def unzip_files():
-    location = get_dir()
-    for zipped_file in os.listdir(location):
-        os.chdir(location)
+    for zipped_file in os.listdir(dir_location):
+        os.chdir(dir_location)
         if zipped_file.endswith('.zip'):
             file_unzipped = zipfile.ZipFile(zipped_file)
             file_unzipped.extractall()
