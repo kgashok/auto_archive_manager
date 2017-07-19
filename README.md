@@ -1,10 +1,21 @@
 # auto_archive_manager
-Auto Archive Manger written in Django.
+Auto Archive Manager written in Python 3.
 
+### Installation
+```
+# clone repo
+git clone git@github.com:stanulilic/auto_archive_manager.git
+# go into repo
+cd auto_archive_manager
+
+```
 ### Usage.
 ```
-On *nix.
-cd into the directory with zipped files. Then type 'pwd' to get the directory path and copy it.
-Run the auto_archive_manager.
+
+cd into the directory with zipped files. 
+Then type 'pwd' to get the directory path and copy it.
+# run the program
+ python3 auto_archive_manager.py
 Paste the path into the prompt and choose the desired option.
 ```
+
